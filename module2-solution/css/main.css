@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 1.55em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.box-title {
+    font-weight: bold;
+    float: right;
+    font-size: 1.25em;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+    margin: -1px -1px;
+}
+
+.box-content {
+    text-align: left;
+    clear: right;
+    margin: 40px 10px 10px 10px;
+}
+
+.title-red {
+    color: white;
+    background: red;
+    text-transform: capitalize;
+}
+
+.title-yellow {
+    color: black;
+    background: yellow;
+    text-transform: capitalize;
+}
+
+.title-pink {
+    color: black;
+    background: pink;
+    text-transform: capitalize;
+}
+
+.box {
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+}
+
+
+/* desktop css */
+
+@media screen and (min-width: 992px) {
+    .column {
+        width: 33.33%;
+        float: left;
+        padding: 5px;
+    }
+}
+
+@media screen and (min-width: 168px) and (max-width: 991px) {
+    .column {
+        width: 50%;
+        float: left;
+        padding: 5px;
+    }
+}
