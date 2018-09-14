@@ -90,9 +90,20 @@ $(function() { // Same as document.addEventListener("DOMContentLoaded"...
                 console.log(responseText);
                 console.log(dc.allCategorieslist);
                 //var cat1 = chooseRandomCategory(dc.allCategorieslist); //trinhlvd added
-                console.log("trinhlvd getcate", window.$dc.getCategories());
-                responseText = insertProperty(responseText, "randomCategoryShortName", "'A'");
-                $("#main-content").html(responseText);
+                //console.log("trinhlvd getcate", window.$dc.getCategories());
+                $ajaxUtils.sendGetRequest(allCategoriesUrl, function(responseText1) {
+                    console.log("all categories from API", responseText1);
+                    console.log("inherit response", responseText);
+                    //indow.listCat = responseText1;
+                    //console.log("in mem", window.listCat);
+                    var cat1 = responseText1;
+                    var x1 = chooseRandomCategory(cat1);
+                    console.log("cat1:", cat1);
+                    console.log("x1:", x1);
+
+                    responseText = insertProperty(responseText, "randomCategoryShortName", "'" + x1.short_name + "'");
+                    $("#main-content").html(responseText);
+                }, true);
             }, // ***** <---- TODO: STEP 1: Substitute [...] ******
             false); // Explicitely setting the flag to get JSON from server processed into an object liteal
     });
@@ -149,9 +160,9 @@ $(function() { // Same as document.addEventListener("DOMContentLoaded"...
     function chooseRandomCategory(categories) {
         // Choose a random index into the array (from 0 inclusively until array length (exclusively))
         var randomArrayIndex = Math.floor(Math.random() * categories.length);
-
+        console.log("random is", randomArrayIndex);
         // return category object with that randomArrayIndex
-        return categories[randomArrayIndex].short_name;
+        return categories[randomArrayIndex];
     }
 
 
